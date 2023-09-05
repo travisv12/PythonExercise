@@ -210,11 +210,9 @@ else:
 print("5.4")
 cities = []
 city = input("add a city name: ")
-n=1
-while n<5:
+for i in range(1,5):
     cities.append(city)
     city = input("add a city name: ")
-    n = n + 1
 cities.append(city)
 print(cities)
 for index,i in enumerate(cities, start=1):
