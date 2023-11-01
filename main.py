@@ -412,7 +412,7 @@ coor1 = coor(code1)
 coor2 = coor(code2)
 print("distance is: ",distance(coor1,coor2))
 
-print("9.1 and 9.2 and 9.3 and 9.4")
+print("9.1 and 9.2 and 9.3 and 9.4 and 10.4 and 11.2")
 import random
 class Car:
     def __init__(self, registration_number:str, maximum_speed:int):
@@ -436,7 +436,30 @@ class Car:
 
     def __str__(self):
         return f"The car has:\nRegistration Number: {self.registration_number}, Maximum Speed: {self.maximum_speed} km/h, Current Speed: {self.current_speed} km/h, Travelled Distance: {self.travelled_distance} km"
+#This part is for 11.2
+class ElectricCar(Car):
+    def __init__(self, registration_number, max_speed, battery_capacity):
+        super().__init__(registration_number, max_speed)
+        self.battery_capacity = battery_capacity
+        self.current_speed = 0
+        self.travelled_distance = 0
+class GasolineCar(Car):
+    def __init__(self, registration_number, max_speed, tank_volume):
+        super().__init__(registration_number, max_speed)
+        self.tank_volume = tank_volume
+        self.current_speed = 0
+        self.travelled_distance = 0
 
+electric_car = ElectricCar("ABC-15", 180, 52.5)
+gasoline_car = GasolineCar("ACD-123", 165, 32.3)
+electric_car.accelerate(100)
+gasoline_car.accelerate(120)
+electric_car.drive(3)
+gasoline_car.drive(3)
+print(electric_car.travelled_distance)
+print(gasoline_car.travelled_distance)
+
+#This part is for 10.4
 class Race:
     def __init__(self, name, distance, cars):
         self.name = name
@@ -476,8 +499,9 @@ if __name__ == "__main__":
 
     print("The race finished at",hour,"hours")
     race.print_status()
-
-"""new_car = Car("ABC-123", 142)
+    
+#This part is for 9.4
+new_car = Car("ABC-123", 142)
 print(new_car)
 
 new_car.accelerate(30)
@@ -517,9 +541,9 @@ print("Car\t\tMaximum Speed\tCurrent Speed\tTravelled Distance")
 for car in cars:
     print(f"{car.registration_number}\t{car.maximum_speed}\t\t\t\t{car.current_speed}\t\t\t\t{car.travelled_distance}")
 
-print(f"The race finished after {hour} hours.")"""
+print(f"The race finished after {hour} hours.")
 
-print("10.1 and 10.2")
+print("10.1 and 10.2 and 10.3")
 class Elevator:
     def __init__(self, bottom_floor:int, top_floor:int):
         self.bottom_floor = bottom_floor
@@ -577,8 +601,61 @@ building.run_elevator(2, 2)
 
 building.fire_alarm()
 
+print("11.1")
+class Publication:
+    def __init__(self,name):
+        self.name = name
+    def print_info(self):
+        pass
+class Book(Publication):
+    def __init__(self,name,page,author):
+        self.page = page
+        self.author = author
+        super().__init__(name)
+    def print_info(self):
+        print(f"The book {self.name} has {self.page} pages and was written by {self.author}")
+class Magazine(Publication):
+    def __init__(self,name,editor):
+        self.editor = editor
+        super().__init__(name)
+    def print_info(self):
+        print(f"The magazine {self.name} was edited by {self.editor}")
 
-"""import time
+magazine1 = Magazine("Donald Duck","Aki Hyyppa")
+book1 = Book("Compartment No.6",192,"Rosa Liksom")
+magazine1.print_info()
+book1.print_info()
+
+print("12.1 and 12.2")
+import requests
+
+request = "https://api.chucknorris.io/jokes/random"
+
+try:
+    response = requests.get(request)
+    if response.status_code==200:
+        json_response = response.json()
+        print(json_response["value"])
+except requests.exceptions.RequestException as e:
+    print ("Request could not be completed.")
+
+def changetemp(no:float):
+    result = no - 273.15
+    return result
+location = input("Enter a location: ")
+request = "https://api.openweathermap.org/data/2.5/weather?q=" + location +"&APPID=11ee7c722aa45c4592cb485d3fb2d9dd"
+try:
+    response = requests.get(request)
+    if response.status_code==200:
+        json_response = response.json()
+        kelvin = json_response["main"]["temp"]
+        temperature = changetemp(kelvin)
+        print(f"At the location {location}, the temperature is {temperature:.2f} Celcius")
+except requests.exceptions.RequestException as e:
+    print ("Request could not be completed.")
+
+"""
+import time
 import mysql.connector
 
 connection = mysql.connector.connect(
@@ -600,7 +677,7 @@ def story():
             time.sleep(1)
             print("Once upon a time, there lives a world where everyone is living peacefully and thriving. ")
             time.sleep(1)
-            print("Suddenly an airborne disease has quickly spread through Earth, threatened to destroy civilizat0ion.")
+            print("Suddenly an airborne disease has quickly spread through Earth, threatened to destroy civilization.")
             time.sleep(1)
             print("Luckily scientists has built a safe zone in Helsinki Vantaa Airport that protects people from the deadly disease")
             time.sleep(1)
@@ -610,7 +687,7 @@ def story():
             time.sleep(1)
             print("Your mission is to rescue 100 people from at least 5 countries.")
             time.sleep(1)
-            print("You will get some money and fuel and you will earn more along the way.")
+            print("You will get some money and fuel and you will earn more money by saving people along the way.")
             time.sleep(1)
             print("Remember to refuel before taking off and be mindful of the plane capacity.")
             time.sleep(1)
