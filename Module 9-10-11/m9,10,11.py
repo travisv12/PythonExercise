@@ -1,4 +1,5 @@
 print("9.1 and 9.2 and 9.3 and 9.4 and 10.4 and 11.2")
+#Because these exercises all related to Car theme so I put them together
 import random
 
 
@@ -67,6 +68,7 @@ for car in cars:
     print(f"{car.registration_number}\t{car.maximum_speed}\t\t\t\t{car.current_speed}\t\t\t\t{car.travelled_distance}")
 
 print(f"The race finished after {hour} hours.")
+
 # This part is for 10.4
 class Race:
     def __init__(self, name, distance, cars):
@@ -140,8 +142,6 @@ print(gasoline_car.travelled_distance)
 
 
 print("10.1 and 10.2 and 10.3")
-
-
 class Elevator:
     def __init__(self, bottom_floor: int, top_floor: int):
         self.bottom_floor = bottom_floor
